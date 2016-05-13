@@ -25,60 +25,60 @@ def show_chart(x_show):
 x_show = np.linspace(0,1,1000)
 
 """
-10 samples m = 4
+10 samples m = 3
 """  
-w_num =4    
+fit_degree = 3    
 x = np.linspace(0,1,10)
 y_real = real_func(x)
 y_noise = [np.random.normal(0,0.3) + y for y in y_real]
-w = lsf.least_square(x,y_noise,w_num)
-print 'fit degree 4 in 10 samples, Fitting Parameters : ', w
+w = lsf.least_square(x,y_noise,fit_degree)
+print 'fit degree 3 in 10 samples, Fitting Parameters : ', w
 show_chart(x_show)
 
 
 """
-10 samples m = 10
+10 samples m = 9
 """  
-w_num =10    
+fit_degree = 9     
 x = np.linspace(0,1,10)
 y_real = real_func(x)
 y_noise = [np.random.normal(0,0.3) + y for y in y_real]
-w = lsf.least_square(x,y_noise,w_num)
-print 'fit degree 10 in 10 samples, Fitting Parameters : ', w
+w = lsf.least_square(x,y_noise,fit_degree)
+print 'fit degree 9 in 10 samples, Fitting Parameters : ', w
 show_chart(x_show)
 
 
 """
-15 samples m = 10
+15 samples m = 9
 """  
-w_num =10    
+fit_degree = 9    
 x = np.linspace(0,1,15)
 y_real = real_func(x)
 y_noise = [np.random.normal(0,0.3) + y for y in y_real]
-w = lsf.least_square(x,y_noise,w_num)
-print 'fit degree 10 in 15 samples, Fitting Parameters : ', w
+w = lsf.least_square(x,y_noise,fit_degree)
+print 'fit degree 9 in 15 samples, Fitting Parameters : ', w
 show_chart(x_show)
 
 """
-100 samples m = 10
+100 samples m = 9
 """  
-w_num =10    
+fit_degree = 9    
 x = np.linspace(0,1,100)
 y_real = real_func(x)
 y_noise = [np.random.normal(0,0.3) + y for y in y_real]
-w = lsf.least_square(x,y_noise,w_num)
-print 'fit degree 10 in 100 samples, Fitting Parameters : ', w
+w = lsf.least_square(x,y_noise,fit_degree)
+print 'fit degree 9 in 100 samples, Fitting Parameters : ', w
 show_chart(x_show)
 
 
 """
-10 samples m = 10 with regularizatioin
+10 samples m = 9 with regularizatioin
 """  
-w_num =10    
+fit_degree = 9    
 x = np.linspace(0,1,10)
 y_real = real_func(x)
 y_noise = [np.random.normal(0,0.3) + y for y in y_real]
 lamda = math.exp(-18)
-w = lsf.least_square_regularization(x,y_noise,w_num,lamda)
-print 'fit degree 10 in 10 samples with regularization, Fitting Parameters : ', w
+w = lsf.least_square_regularization(x,y_noise,fit_degree,lamda)
+print 'fit degree 9 in 10 samples with regularization, Fitting Parameters : ', w
 show_chart(x_show)

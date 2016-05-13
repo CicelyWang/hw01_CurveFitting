@@ -19,7 +19,8 @@ def fitted_func(w,x):
     return f(x)
     
 #get the matrix of X,like [1,x,x^2,x^3,....]    
-def getX(x,w_num):
+def getX(x,fit_degree):
+    w_num = fit_degree + 1
     x_mat = np.zeros((w_num,x.size))
     temp = np.ones_like(x)
     for i in range(0,w_num):    
@@ -28,7 +29,8 @@ def getX(x,w_num):
     x_mat  = x_mat.T
     return x_mat
     
-def least_square(x,y,w_num):
+def least_square(x,y,fit_degree):
+    w_num = fit_degree + 1
     #get matix of X(x.size,w_num)
     x_mat = getX(x,w_num)   
     #计算x_mat.T与x_mat的内积，并求出内积方阵的逆矩阵
@@ -39,7 +41,8 @@ def least_square(x,y,w_num):
    
     return w.T   
     
-def least_square_regularization(x,y,w_num,lamda):
+def least_square_regularization(x,y,fit_degree,lamda):
+    w_num = fit_degree
     #get matix of X(x.size,w_num)
     x_mat = getX(x,w_num)   
     #计算x_mat.T与x_mat的内积，并求出内积方阵的逆矩阵
